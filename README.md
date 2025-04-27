@@ -28,6 +28,12 @@ It is possible to add more users and do more advanced configuration by using the
 
 ## Start up
 
+### First time:
+
+Build the image with `docker compose build`.
+
+### Start
+
 Start the container with `docker compose up` or `docker compose up -d` if you want it to run in the background.
 
 ## Email Setup
