@@ -45,7 +45,9 @@ sendemail -m "Sending an email to my user" -f "MyNameIs <f@example.com>" -u "Tes
 Apr 27 11:42:41 wopr sendemail[97869]: Email was sent successfully!
 ```
 
-## Email Setup
+You can now visit the webmail interface and log in with the MAILUSER credentials: [http://<IP of docker host>:8012/WebMail/](http://localhost:8012/WebMail/).
+
+## Email Client Setup
 
 Connect your email client to SMTP on port 8025 and POP 8026 and the IP address of the computer you are running docker on.
 
