@@ -1,0 +1,19 @@
+services:
+  bpq-simplemail:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bpq-simplemail:latest
+    container_name: bpq-simplemail
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./config:/config # Map the local "bpq" directory to the container's LinBPQ working directory
+      - ./bpq32.cfg:/config/bpq32.cfg # Map the local "bpq32.cfg" file to the container's LinBPQ configuration file
+      - ./linmail.cfg:/config/linmail.cfg # Map the local "bpq32.cfg" file to the container's LinBPQ configuration file
+    working_dir: /config
+    ports:
+      - "8010-8012:8010-8012"
+      - "8024-8025:8024-8025"
+    command: sh -c "/usr/local/bin/linbpq64"
+    restart: unless-stopped

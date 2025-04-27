@@ -1,0 +1,23 @@
+; simple example config for bpq32 with telnet, chat and email enabled
+; Fredrik Lundhag <f@mekk.com>
+
+
+SIMPLE
+LINMAIL
+LINCHAT
+NODECALL={{NODEID}}
+LOCATOR=NONE
+
+PORT
+ ID=Telnet Server
+ DRIVER=TELNET
+ CONFIG
+  LOGGING=1
+  TCPPORT=8010
+  FBBPORT=8011
+  HTTPPORT=8012
+  USER={{ADMINUSER}},{{ADMINPASSWORD}},{{NODEID}},,SYSOP;
+ENDPORT
+
+APPLICATION 1,BBS,,{{NODEID}},BBS,0
+APPLICATION 2,CHAT,,{{NODEID}}-4,CHAT,0
