@@ -36,6 +36,15 @@ Build the image with `docker compose build`.
 
 Start the container with `docker compose up` or `docker compose up -d` if you want it to run in the background.
 
+## Send test email to the server
+
+I use [sendemail](https://packages.debian.org/search?keywords=sendemail&searchon=names&suite=all&section=all)
+
+```
+sendemail -m "Sending an email to my user" -f "MyNameIs <f@example.com>" -u "Testing subject" -t "$MAILUSER@$NODEID" -s "<IP of docker host>:8025" -xu $MAILUSER -xp $MAILPASSWORD
+Apr 27 11:42:41 wopr sendemail[97869]: Email was sent successfully!
+```
+
 ## Email Setup
 
 Connect your email client to SMTP on port 8025 and POP 8026 and the IP address of the computer you are running docker on.
